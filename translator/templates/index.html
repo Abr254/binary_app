@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Binary Translator</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        .container {
+            margin-top: 30px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        textarea {
+            resize: none;
+        }
+        .output-section {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            background-color: #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Text to Binary Translator</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <textarea name="text" class="form-control" rows="4" placeholder="Enter text here..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Convert</button>
+        </form>
+        {% if binary %}
+            <div class="output-section">
+                <h2>Binary Output:</h2>
+                <p>{{ binary }}</p>
+                <h2>Original Text:</h2>
+                <p>{{ text }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
